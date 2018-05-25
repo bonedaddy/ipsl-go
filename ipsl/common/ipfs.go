@@ -4,6 +4,7 @@ import (
 	ipfsapi "github.com/ipfs/go-ipfs-api"
 )
 
+// IPFS is a helper struct
 type IPFS struct {
 	Shell *ipfsapi.Shell
 }
@@ -25,4 +26,19 @@ func (i *IPFS) DagPutJSON(data interface{}) (string, error) {
 		return "", err
 	}
 	return cid, nil
+}
+
+// DagGet is not yet implemented
+func (i *IPFS) DagGet() {
+	// TODO: implement
+}
+
+// GetLocalPeerID is used to return the id
+// of the local peer
+func (i *IPFS) GetLocalPeerID() (string, error) {
+	peer, err := i.Shell.ID()
+	if err != nil {
+		return "", err
+	}
+	return peer.ID, nil
 }
