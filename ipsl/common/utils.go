@@ -1,22 +1,32 @@
 package common
 
 import (
+	"errors"
 	"fmt"
-	"log"
 	"strings"
 )
 
 var protocols = [3]string{"ipfs", "https", "ftp"}
 
-func CleanAddress(protocol string, address string) {
+// CleanAddress is used to remove the protocol string from the ipfs that is passed in
+func CleanAddress(protocol string, address string) (string, error) {
 	if address == "" {
-		return
+		return "", errors.New("invalid address")
 	}
 
 	switch protocol {
 	case "ipfs":
+		// replace /ipfs/ with ''
 		address = strings.Replace(fmt.Sprint(address), "/ipfs/", "''", 1)
+	case "https":
+		// replace https:// with ''
+		address = strings.Replace(fmt.Sprint(address), "https://", "''", 1)
+	case "ftp":
+		// replace ftp:// with ''
+		address = strings.Replace(fmt.Sprint(address), "ftp://", "''", 1)
 	default:
-		log.Fatal("not a valid protocol")
+		return "", errors.New("invalid protocol")
 	}
+
+	return address, nil
 }
