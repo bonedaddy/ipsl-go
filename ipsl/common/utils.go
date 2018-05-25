@@ -30,3 +30,5 @@ func CleanAddress(protocol string, address string) (string, error) {
 
 	return address, nil
 }
+
+func CleanArguments(args []string) {}
