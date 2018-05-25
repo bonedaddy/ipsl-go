@@ -1,6 +1,6 @@
 package cmd
 
-import "github.com/postables/ipls-go/ipsl/common"
+import "github.com/postables/ipsl-go/ipsl/common"
 
 // ConfigPath is the config file
 const ConfigPath = "/ipsl/config.json"
