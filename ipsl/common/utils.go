@@ -6,7 +6,8 @@ import (
 	"strings"
 )
 
-var protocols = [3]string{"ipfs", "https", "ftp"}
+// list of the supported protocols
+var Protocols = [3]string{"ipfs", "https", "ftp"}
 
 // CleanAddress is used to remove the protocol string from the ipfs that is passed in
 func CleanAddress(protocol string, address string) (string, error) {
