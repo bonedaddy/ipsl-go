@@ -2,6 +2,15 @@ package cmd
 
 import "github.com/postables/ipls-go/ipsl/common"
 
+// ConfigPath is the config file
+const ConfigPath = "/ipsl/config.json"
+
+// TestConfigPath is the config path to use when using test mode
+const TestConfigPath = "/ipsl/test_config.json"
+
+// TestMode indicates whether or not we are running in test mode
+const TestMode = false
+
 // Domains holds domain related info
 type Domains struct {
 	Patterns []string `json:"patterns"`
